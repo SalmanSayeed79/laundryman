@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import CartContextProvider from './Hooks/CartContextProvider'
+import './index.css'
+import {ThemeProvider} from '@mui/material'
+import {createTheme} from "@mui/material/styles"
+import Home from './Pages/Home'
+import Appbar from "./Components/Appbar"
+import Laundry from './Pages/Laundry'
+import Cart from './Pages/Cart'
+import Account from './Pages/Account'
+const customTheme=createTheme({
+  palette:{
+ 
+  },
+  typography: {
+    fontFamily: [
+      "Oswald",
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+
+  
+
+  return(
+    <BrowserRouter>
+      <CartContextProvider>
+        <ThemeProvider theme={customTheme}>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/account" exact component={Account}/>
+            <Route path="/laundry" exact component={Laundry}/>
+            <Route path="/cart" exact component={Cart}/>
+          </Switch>
+          <Appbar/>
+        </ThemeProvider>
+      </CartContextProvider>
+    </BrowserRouter>
+  )
 }
 
 export default App;
