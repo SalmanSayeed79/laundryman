@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Typography,Box,Button,Paper } from '@mui/material'
 import {removeCartItem, useCart, useCartEmpty} from '../Hooks/CartContextProvider'
 import CartItem from '../Components/CartItem'
+
 export default function Cart() {
     const cartItems=useCart()
     const cartEmpty=useCartEmpty()
