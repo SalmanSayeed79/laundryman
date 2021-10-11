@@ -3,7 +3,6 @@ import {Box,Typography,AppBar,Toolbar,IconButton,Paper} from "@mui/material"
 import Carousel from 'react-material-ui-carousel'
 
 const CarouselItem=(props)=>{
-    console.log(props.imgSrc)
     return(
         <Box component="img" src={props.imgSrc} sx={{width:{xs:"90vw",md:"40vw"},borderRadius:"50px"}}/>
     )

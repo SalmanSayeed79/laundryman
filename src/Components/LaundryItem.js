@@ -37,7 +37,14 @@ export default function LaundryItem({name,icon,price}) {
                         price:price,
                         count:count
                     }
-                    let match=false
+                    let match=false 
+                    //Item count 0
+                    if(newItem.count==0){
+                        alert("Please increase item count to add to cart. Current item count is 0") 
+                        return
+                    }
+
+                    //Item already added to cart
                     cartItems.forEach(a=>{
                         if(a.name==newItem.name){match=true}
                     })
